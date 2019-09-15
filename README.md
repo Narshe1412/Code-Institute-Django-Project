@@ -1,5 +1,7 @@
 # Your Project's Name
 
+[![Build Status](https://travis-ci.com/Narshe1412/portfolio.svg?branch=master)](https://travis-ci.com/Narshe1412/portfolio)
+
 # Project Example Idea 3
 Build a site to sell your graphic design services
 
