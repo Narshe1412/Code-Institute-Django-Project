@@ -1,8 +1,18 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth import get_user_model
+from enum import Enum
 
 # Create your models here.
+
+        
+class PostType(Enum):
+    """
+    Stores an enumeration to distinguish between types of post
+    """
+    NEWS = "News Post"
+    BLOG = "Blog Post"
+
 
 class Post(models.Model):
     """
@@ -20,6 +30,12 @@ class Post(models.Model):
       get_user_model(),
       on_delete=models.CASCADE
     )
+    post_type = models.CharField(
+      max_length=5,
+      choices=[(tag, tag.value) for tag in PostType],
+      default=PostType.BLOG
+    )
+    is_important = models.BooleanField(default=False)
     
     
     def __unicode__(self):
