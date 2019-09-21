@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load common_tags %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md2 col-sm-3 text-center">
+        <a href="" class="story-img">
+            <img src="/media/img/profile.jpg" class="img-circle"></img>
+        </a>
+        <p><span class="boldtext">Author: </span> {{ post.author }}</p>
+    </div>
+    <div class="col-sm-10 col-md-9">
+        {% if post.image %}
+            <img src="/media/{{post.image}}" alt="" class="img-post">
+        {% endif %}
+        <h3>{{post.title}}</h3>
+        <div class="row">
+            <div class="col-xs-9">
+                <p>{{ post.content }}</p>
+                <p><span class="boldtext">Published on:</span> {{ post.published_date }}</p>
+                <p><span class="boldtext">Views:</span> {{ post.views }}</p>
+                <p><span class="boldtext">Tags:</span> {{ post.tag }}</p>
+                {% if user.is_authenticated and user|is_editor %}
+                    <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a>
+                {% endif %}
+                <a href="{% url 'get_news' %}" class="btn btn-default">Back to News</a>
+                <a href="{% url 'get_blogs' %}" class="btn btn-default">Back to Blog</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

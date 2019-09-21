@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
     'accounts',
+    'post',
     'home'
 ]
 
@@ -70,6 +71,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
             ],
+            'libraries': {
+                'common_tags': 'home.templatetags.common',
+            },
         },
     },
 ]
