@@ -4,10 +4,10 @@ from .models import Post,PostType
 from .forms import PostForm
 
 def get_news(request):
-    get_all_posts(request, PostType.NEWS)
+    return get_all_posts(request, PostType.NEWS)
     
 def get_blogs(request):
-    get_all_posts(request, PostType.BLOG)
+    return get_all_posts(request, PostType.BLOG)
 
 def get_all_posts(request, show_only=None):
     """
@@ -17,7 +17,9 @@ def get_all_posts(request, show_only=None):
     if(show_only == None):
         posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('is_important', '-published_date')
     else:
-        posts = Post.objects.filter(post_type__exact=show_only).filter(published_date__lte=timezone.now()).order_by('is_important', '-published_date')
+        # posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('is_important', '-published_date')
+        print("this is the varname", show_only.name)
+        posts = Post.objects.filter(post_type__exact=show_only.name).filter(published_date__lte=timezone.now()).order_by('is_important', '-published_date')
     return render(request, "posts.html", {"posts": posts})
     
     

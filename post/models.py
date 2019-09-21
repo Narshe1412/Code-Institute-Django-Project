@@ -31,8 +31,8 @@ class Post(models.Model):
       on_delete=models.CASCADE
     )
     post_type = models.CharField(
-      max_length=5,
-      choices=[(tag, tag.value) for tag in PostType],
+      max_length=20,
+      choices=[(pt.name, pt.value) for pt in PostType],
       default=PostType.BLOG
     )
     is_important = models.BooleanField(default=False)
