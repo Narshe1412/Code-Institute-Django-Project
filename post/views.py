@@ -40,9 +40,10 @@ def show_post_form(request, pk=None):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
+            form.instance.author = request.user
             post = form.save()
             return redirect(post_detail, post.pk)
     
     else:
         form = PostForm(instance=post)
-    return render(request, "postform.html", {"post":post})
+    return render(request, "postform.html", {"form":form})
