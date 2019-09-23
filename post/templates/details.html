@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-md2 col-sm-3 text-center">
         <a href="" class="story-img">
-            <img src="/media/img/profile.jpg" class="img-circle"></img>
+            <img src="{{ user.userprofile.profile.url }}" alt="{{ post.author }} profile picture" class="img-circle rounded-circle"></img>
         </a>
         <p><span class="boldtext">Author: </span> {{ post.author }}</p>
     </div>

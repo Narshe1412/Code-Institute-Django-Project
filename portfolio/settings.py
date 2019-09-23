@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'post',
     'home',
     'storages',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -174,3 +175,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 EMAIL_PORT = 587
+
+# Override User profile with custom profile
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
