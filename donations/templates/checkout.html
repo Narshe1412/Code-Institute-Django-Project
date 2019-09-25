@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap_tags %}
+
+{% block stripe_js %}
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="">
+    //<![CDATA[
+        Stripe.publishableKey = '{{ publishable }}'
+    //]]>
+</script>
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="row row-flex">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+        <div class="panel-body">
+            <div class="product"></div>
+            <div class="caption">
+                Write here the description of the donation or sumthing
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <p>Total</p>
+    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span> Total donated</p>
+</div>
+<form method="POST" role="form" id="payment-form" action="{% url 'checkout' %}">
+    <legend>Payment Details</legend>
+    <div id="credit-card-errors" style="display:none">
+        <div class="alert-message block-message error" id="stripe-error-message"></div>
+    </div>
+    
+    <div class="form-group col-md-6">
+        {{ donation_form|as_bootstrap }}
+    </div>
+    <div class="form-group col-md-6">
+        {{ payment_form|as_bootstrap }}
+    </div>
+    
+    {% csrf_token %}
+    
+    <div class="form-group col-md-12">
+        <input type="submit" name="commit" value="Submit Donation" class="btn btn-primary" id="submit_payment_btn">
+    </div>
+</form>
+{% endblock %}

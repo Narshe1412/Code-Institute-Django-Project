@@ -19,7 +19,7 @@ from django.views.generic import RedirectView
 from django.views.static import serve
 from .settings import MEDIA_ROOT
 
-from posts import urls as posts_urls
+from post import urls as posts_urls
 from donations import urls as donations_urls
 from accounts import urls as accounts_urls
 from home.views import index
