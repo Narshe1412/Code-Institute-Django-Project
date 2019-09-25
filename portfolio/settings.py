@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'home',
     'storages',
     'phonenumber_field',
+    'donations',
 ]
 
 MIDDLEWARE = [
