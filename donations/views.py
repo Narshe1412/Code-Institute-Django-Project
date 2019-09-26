@@ -32,7 +32,7 @@ def checkout(request):
             if customer.paid:
                 messages.error(request, "Payment successful!")
                 
-                return redirect(reverse('home'))
+                return redirect(reverse('index'))
             else:
                 messages.error(request, "Unable to get payment")
         else:
