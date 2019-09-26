@@ -30,7 +30,7 @@ def checkout(request):
                 messages.error(request, "Your card was not authorized")
                 
             if customer.paid:
-                messages.error(request, "Payment successful!")
+                messages.success(request, "Payment successful!")
                 
                 return redirect(reverse('index'))
             else:
