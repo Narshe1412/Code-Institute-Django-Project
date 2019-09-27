@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'home',
     'storages',
     'phonenumber_field',
+    'donations',
 ]
 
 MIDDLEWARE = [
@@ -133,6 +134,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Messaging
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
