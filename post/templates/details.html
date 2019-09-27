@@ -1,21 +1,19 @@
-{% extends "base.html" %}
-
-{% load static %}
-{% load common_tags %}
-
+{% extends "base.html" %} 
+{% load static %} 
+{% load common_tags %} 
+{% load bootstrap_tags %}
 {% block content %}
 
 <div class="row">
     <div class="col-md2 col-sm-3 text-center">
         <a href="" class="story-img">
-            <img src="{{ user.userprofile.profile.url }}" alt="{{ post.author }} profile picture" class="img-circle rounded-circle"></img>
+            <img src="{{ post.author.userprofile.profile.url }}" alt="{{ post.author }} profile picture" class="img-circle rounded-circle"></img>
         </a>
         <p><span class="boldtext">Author: </span> {{ post.author }}</p>
     </div>
     <div class="col-sm-10 col-md-9">
         {% if post.image %}
-            <img src="{{ post.image.url }}" alt="" class="img-post">
-        {% endif %}
+        <img src="{{ post.image.url }}" alt="" class="img-post"> {% endif %}
         <h3>{{post.title}}</h3>
         <div class="row">
             <div class="col-xs-9">
@@ -24,10 +22,36 @@
                 <p><span class="boldtext">Views:</span> {{ post.views }}</p>
                 <p><span class="boldtext">Tags:</span> {{ post.tag }}</p>
                 {% if user.is_authenticated and user|is_editor %}
-                    <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a>
-                {% endif %}
+                <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a> {% endif %}
                 <a href="{% url 'get_news' %}" class="btn btn-default">Back to News</a>
                 <a href="{% url 'get_blogs' %}" class="btn btn-default">Back to Blog</a>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-xs-9">
+        {% if comment_form and user.is_authenticated %}
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ comment_form|as_bootstrap }}
+                    <input type="submit" value="Add Comment"/>
+                </form>
+        {% else %}
+                <p>Please login to add comments...</p>
+        {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-9">
+                {% for comment in post.comments.all %}
+                <div class="comment">
+                    <div class="date">{{ comment.created }}</div>
+                    <strong>{{ comment.author }}</strong>
+                    <p>{{ comment.content|linebreaks }}</p>
+                </div>
+                {% empty %}
+                <p>No comments here yet :(</p>
+                {% endfor %}
             </div>
         </div>
     </div>

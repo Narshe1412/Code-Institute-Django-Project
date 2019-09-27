@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-md-2 col-sm-3 text-center">
         <a href="#" class="story-img">
-            <img src="{{ user.userprofile.profile.url }}" alt="{{ post.author }} profile picture" class="img-circle rounded-circle">
+            <img src="{{ post.author.userprofile.profile.url }}" alt="{{ post.author }} profile picture" class="img-circle rounded-circle">
         </a>
         <p><span class="boldtext">Author: </span>{{ post.author }}</p>
     </div>
@@ -19,6 +19,7 @@
                 <p><a href="{% url 'post_detail' post.id %}" class="btn btn-default">Read more</a></p>
                 <p><span class="boldtext">Published on:</span> {{ post.published_date }}</p>
                 <p><span class="boldtext">Views:</span> {{ post.views }}</p>
+                <p><span class="boldtext">Comments:</span> {{ post.comments.count }}</p>
                 <p><span class="boldtext">Tags:</span> {{ post.tag }}</p>
             </div>
         </div>
