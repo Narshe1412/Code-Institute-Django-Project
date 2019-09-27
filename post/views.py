@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Post,PostType
+from comments.models import Comment
 from .forms import PostForm
+from comments.forms import CommentForm
 
 def get_news(request):
     return get_all_posts(request, PostType.NEWS)
@@ -27,9 +29,22 @@ def post_detail(request, pk):
     Will return an error if post is not found
     """
     post = get_object_or_404(Post, pk=pk)
+    comments = post.comments.all
     post.views += 1
     post.save()
-    return render(request, "details.html", {"post": post})
+    
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid() and request.user:
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.author = request.user
+            new_comment.save()
+    elif request.user:
+        comment_form = CommentForm()
+    
+    return render(request, "details.html", {"post": post, "comments": comments, "comment_form": comment_form})
+    
     
 def show_post_form(request, pk=None):
     """
