@@ -3,9 +3,14 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
     <meta name="title" content="Save the World">
-    <meta name="deescription" content="#">
-    <link rel="icon" href="https://fe5f9be07ba14ed997985b891ef1c58b.vfs.cloud9.us-east-1.amazonaws.com/static/img/favicon.png" type="image/png">
+    <meta name="deescription" content="Non profit organization to save the nature">
+    
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
     <!--<link rel="stylesheet" href="{% static 'css/styles.css' %}">-->
@@ -19,7 +24,7 @@
         <!--Start of the navbar-->
         <div class="top-bar">
             <div class="logo-brand">
-                <a href="/" alt="Save the World"><img class="logo-brand-img" src="https://fe5f9be07ba14ed997985b891ef1c58b.vfs.cloud9.us-east-1.amazonaws.com/static/img/logo.png" alt="brand-logo"></a>
+                <a href="/" alt="Save the World"><img class="logo-brand-img" src="{% static 'img/logo.png' %}" alt="brand-logo"></a>
             </div>
             {% if user.is_authenticated or user|is_editor %}
             <div class="top-badge">
@@ -67,7 +72,7 @@
         <!--End of navbar-->
     </header>
 
-{% if request.resolver_match.url_name != 'index' %}
+    {% if request.resolver_match.url_name != 'index' %}
     <section class="page_head">
         <div class="container">
             <div class="row">
@@ -86,7 +91,7 @@
             </div>
         </div>
     </section>
-{% endif %}
+    {% endif %}
 
 
     <!--Message board-->
@@ -181,6 +186,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'js/site.js' %}"></script>
     {% block stripe_js %} {% endblock %}
 </body>
 
