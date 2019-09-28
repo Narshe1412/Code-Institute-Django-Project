@@ -3,7 +3,7 @@
 {% block page_header %}User Profile{% endblock %}
 {% block content %}
     <div class="container">
-        <div class="row">
+
             <p>Full name: {{ userdata.first_name }} {{ userdata.last_name }}</p>
             <p>Email: {{ userdata.email }}</p>
             <p>Phone: {{ userdata.userprofile.phone_numer }} </p>
@@ -11,9 +11,7 @@
             <p> {{userdata}}</p>
             <p> {{userdata.userprofile.profile}}</p>
             <a href="{% url 'edit_profile' %}" class="btn btn-success">Edit Profile</a>
-        </div>
-        <div class="row">
-            
+
         </div>
     </div>
 
