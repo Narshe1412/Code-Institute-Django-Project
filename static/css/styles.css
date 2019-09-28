@@ -69,56 +69,39 @@ body {
     background-image: none;
 }
 
-/* Media queries*/
-
-@media only screen and (max-width: 300px) {
-    .text {
-        font-size: 11px
-    }
+.form-heading {
+    margin: 20px 0;
+    padding-bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-top: 0px;
 }
 
-
-@media(max-width:768px) {
-    /* Disable breadcrumbs in small devices */
-    #breadcrumbs {
-        display: none;
-    }
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 18px!important;
+    font-size: 14px;
+    height: 40px;
 }
 
-@media screen and (max-width: 800px) {
-    /* Stack columns in content for small screens */
-    .leftcolumn,
-    .rightcolumn {
-        width: 100%;
-        padding: 0;
-    }
+.form-horizontal .form-group {
+    float: left;
+    width: 100%;
+    margin: 0px auto;
 }
 
-/* Login page media queries */
-
-@media(max-width:900px) {
-    #login {
-        width: 40%;
-    }
+.form-control {
+    height: 46px;
+    border-radius: 0;
+    padding: 12px;
+    margin-bottom: 10px;
 }
 
-@media(max-width:768px) {
-    #login {
-        width: 50%;
-    }
-}
-
-@media(max-width:500px) {
-    #login {
-        width: 80%;
-    }
-}
-
-@media(max-width:380px) {
-    #login {
-        width: 90%;
-    }
-}
 
 /* Animations */
 
@@ -651,4 +634,98 @@ body {
 
 .slide-active {
     background-color: #925c3b;
+}
+
+
+/* 
+* =====================
+* Login
+* =====================
+*/
+
+#login {
+    width: 35%;
+    margin: 40px auto 30px;
+}
+
+.login-title {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-top: 0px;
+}
+
+.forgot-password-link {
+    margin-left: auto;
+    width: 100%
+}
+
+.forgot-password {
+    padding: 10px 0;
+}
+
+.form-signin {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ededed;
+    -webkit-box-shadow: 0px 0px 1px rgba(196, 197, 201, 0.75);
+    box-shadow: 0px 0px 1px rgba(196, 197, 201, 0.75);
+    padding: 19px 29px 45px;
+    margin: 10px auto;
+    visibility: visible;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-name: fadeIn;
+}
+
+
+
+
+/* Media queries*/
+
+@media only screen and (max-width: 300px) {
+    .text {
+        font-size: 11px
+    }
+}
+
+
+@media(max-width:768px) {
+    /* Disable breadcrumbs in small devices */
+    #breadcrumbs {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    /* Stack columns in content for small screens */
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Login page media queries */
+
+@media(max-width:900px) {
+    #login {
+        width: 40%;
+    }
+}
+
+@media(max-width:768px) {
+    #login {
+        width: 50%;
+    }
+}
+
+@media(max-width:500px) {
+    #login {
+        width: 80%;
+    }
+}
+
+@media(max-width:380px) {
+    #login {
+        width: 90%;
+    }
 }

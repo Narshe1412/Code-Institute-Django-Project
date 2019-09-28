@@ -18,9 +18,11 @@ def get_all_posts(request, show_only=None):
     """
     if(show_only == None):
         posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-is_important', '-published_date')
+        title = "All Posts"
     else:
         posts = Post.objects.filter(post_type__exact=show_only.name).filter(published_date__lte=timezone.now()).order_by('-is_important', '-published_date')
-    return render(request, "posts.html", {"posts": posts})
+        title = show_only.name
+    return render(request, "posts.html", {"posts": posts, "title": title})
     
     
 def post_detail(request, pk):
