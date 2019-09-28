@@ -17,6 +17,13 @@ body {
     font-weight: bold;
 }
 
+/* Media queries*/
+@media only screen and (max-width: 300px) {
+    .text {
+        font-size: 11px
+    }
+}
+
 /* Top Bar */
 .top-bar {
     background-color: #D98100;
@@ -105,4 +112,241 @@ body {
 
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #fff;
+}
+
+/* Footer */
+
+.dividerHeading h4, .footer-heading h4 {
+    border-bottom: 1px solid #e2e2e2;
+    font-size: 21px;
+    font-weight: normal;
+    padding: 0 0 10px;
+    position: relative;
+}
+
+.dividerHeading h4::before, .footer-heading h4::before {
+    bottom: -3px;
+    content: "";
+    display: inline-block;
+    height: 5px;
+    left: 20px;
+    position: absolute;
+    width: 35px;
+}
+
+.dividerHeading h4::after, .footer-heading h4::after {
+    bottom: -1px;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 80px;
+}
+
+.dividerHeading h4::before, .dividerHeading h4::after {
+    background-color: #925c3b;
+}
+
+.footer {
+    background: #323A45;
+    padding: 30px 0;
+    position: relative;
+    color: #fff;
+}
+
+.footer-content {
+    margin-top: 15px;
+}
+
+.footer-content>p {
+    font-size: 14px;
+}
+
+.contact-details-alt {
+    padding: 0;
+}
+
+.contact-details-alt li {
+    margin: 0 0 5px 0;
+    list-style: none;
+}
+
+.contact-details-alt li i {
+    float: left;
+    font-size: 12px;
+    margin: 2px 0 0 0;
+    width: 15px;
+}
+
+.contact-details-alt p {
+    line-height: 18px;
+    width: 100%;
+    margin: 0;
+}
+
+.contact-details-alt li p strong {
+    color: #fff;
+    float: left;
+    margin: 0;
+    font-size: 12px;
+    width: 25%;
+}
+
+.contact-details-alt p a {
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+.contact-details-alt p a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.links {
+    margin: 0;
+    padding: 0;
+}
+
+.links li {
+    list-style: none;
+}
+
+.links li::before {
+    content: "";
+    font-family: FontAwesome;
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+.links li a {
+    color: #fff;
+    font-size: 13px;
+    line-height: 28px;
+}
+
+.links li a:hover {
+    color: #925c3b;
+    text-decoration: none;
+}
+
+.footer-heading h4::before, .footer-heading h4::after {
+    background-color: #925c3b;
+}
+
+.footer-bottom {
+    background: #292F38;
+    padding: 20px 0;
+    color: #fff;
+}
+
+.copyright {
+    color: #AAAAAA;
+    font-size: 12px;
+    line-height: 40px;
+    margin: 0;
+}
+
+.copyright a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.copyright a:hover {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.footer_social {
+    float: right;
+}
+
+.footer-bottom-social {
+    list-style: none outside none;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+}
+
+.footer-bottom-social li {
+    float: left;
+    background: none !important;
+}
+
+.footer-bottom-social li a {
+    color: #666;
+    display: block;
+    height: 40px;
+    text-align: center;
+    width: 35px;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    margin: 0 2px;
+}
+
+.footer-bottom-social li a i {
+    font-size: 18px;
+    line-height: 40px;
+    margin-right: 0;
+    float: none;
+}
+
+.footer-bottom-social li a.fb:hover {
+    background: #1964DA;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.footer-bottom-social li a.twtr:hover {
+    color: #fff;
+    background: #3ABDD1;
+    border-radius: 5px;
+}
+
+.footer-bottom-social li a.gmail:hover {
+    color: #fff;
+}
+
+.footer-bottom-social li a.pinterest:hover {
+    color: #fff;
+}
+
+.footer-bottom-social li a.rss:hover {
+    color: #fff;
+    background: #F15200;
+    border-radius: 5px;
+}
+
+.footer-bottom-social li a.tumblr:hover {
+    color: #fff;
+}
+
+.footer-bottom-social li a.flickr:hover {
+    color: #fff;
+}
+
+.footer-bottom-social li a.instagram:hover {
+    color: #fff;
+}
+
+.footer-bottom-social li a.linkedin:hover {
+    color: #fff;
+}
+
+.footer-bottom-social li a.skype:hover {
+    color: #fff;
+    background: #00AAF1;
+    border-radius: 5px;
+}
+
+.footer-bottom-social li a.youtube:hover {
+    color: #fff;
+}
+
+.footer-bottom-social li a.dribbble:hover {
+    color: #fff;
+    background: #F97193;
+    border-radius: 5px;
 }

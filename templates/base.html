@@ -41,9 +41,8 @@
                                 <span class="icon-bar"></span>
                         </button>
                 </div>
-                
-            {% with url_name=request.resolver_match.url_name %}
-            {# Sets the active link to match the active url pattern #}
+
+                {% with url_name=request.resolver_match.url_name %} {# Sets the active link to match the active url pattern #}
                 <div id="navbar2" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="{% if url_name == 'index' %}active{% endif %}"><a href="{% url 'index' %}">HOME</a></li>
@@ -62,29 +61,103 @@
                         {% endif %}
                     </ul>
                 </div>
-            {% endwith %}
+                {% endwith %}
             </div>
         </nav>
         <!--End of navbar-->
     </header>
 
 
-    <h1>{% block page_header %}{% endblock %}</h1>
-    <hr/>
+
+
+
     <!--Message board-->
-    {% if messages %}
-        {% for message in messages %} 
-        <div class="alert alert-{{ message.tags }} alert-dismissible">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                <strong>{{ message.tags|title }}!</strong> {{ message }}
-        </div>
-        {% endfor %}
-    {% endif %}
+    {% if messages %} {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <strong>{{ message.tags|title }}!</strong> {{ message }}
+    </div>
+    {% endfor %} {% endif %}
     <!--End of messages-->
 
     <!--Page content-->
     {% block content %}{% endblock %}
     <!--End of content-->
+
+    <!--Footer-->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="footer-heading">
+                        <h4><span>About Us</span></h4>
+                    </div>
+                    <div class="footer-content">
+                        <p>We save the planet starting by your local community.</p>
+                        <ul class="contact-details-alt">
+                            <li><i class="fa fa-user"></i>
+                                <p><strong>Phone: </strong> {{COMPANY_PHONE}}</p>
+                            </li>
+                            <li><i class="fa fa-envelope"></i>
+                                <p><strong>Email: </strong><a href="mailto:{{COMPANY_EMAIL}}">  {{COMPANY_EMAIL}}</a></p>
+                            </li>
+                            <li><i class="fa fa-facebook"></i>
+                                <p><strong>Facebook: </strong><a href="{{COMPANY_FACEBOOK}}">SaveTheWorld Facebook Group</a></p>
+                            </li>
+                            <li><i class="fa fa-twitter"></i>
+                                <p><strong>Twitter: </strong><a href="http://twitter.com/{{COMPANY_TWITTER}}">{{COMPANY_TWITTER}}</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="footer-heading">
+                        <h4><span>Quick Links</span></h4>
+                    </div>
+                    <div class="footer-content">
+                        <ul class="links">
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'get_news' %}">News</a></li>
+                            <li><a href="{% url 'get_blogs' %}">Blog</a></li>
+                            <li><a href="{% url 'registration' %}">Register</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="footer-heading">
+                        <h4><span>Social Pressence</span></h4>
+                    </div>
+                    <div class="footer-content">
+                        <ul class="links">
+                            <li><a href="{{COMPANY_FACEBOOK}}">Facebook</a></li>
+                            <li><a href="http://twitter.com/{{COMPANY_TWITTER}}">Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="copyright">© Copyright 2019 {{ COMPANY_NAME }}</p>
+                </div>
+
+                <div class="col-sm-6 ">
+                    <div class="footer-social">
+                        <ul class="footer-bottom-social">
+                            <li><a class="fb" href="#." data-placement="top" data-toggle="tooltip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a class="twtr" href="#." data-placement="top" data-toggle="tooltip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End of Footer-->
 
     <!--Scripts-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
