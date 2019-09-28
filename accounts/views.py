@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
-from accounts.forms import UserLoginForm, UserRegistrationForm
+from accounts.forms import UserLoginForm, UserRegistrationForm, UserEditForm, UserProfileEditForm
+from .models import UserProfile
+from donations.models import Donation
 
 # Create your views here.
 def index(request):
@@ -46,6 +48,7 @@ def registration(request):
             user = auth.authenticate(username=request.POST['username'], password=request.POST['password1'])
             
             if user:
+                profile = UserProfile.objects.create(user=user)
                 auth.login(user=user, request=request)
                 messages.success(request, "You have created your account.")
                 return redirect(reverse('index'))
@@ -56,3 +59,27 @@ def registration(request):
         registration_form = UserRegistrationForm()
     return render(request, 'registration.html', {"registration_form": registration_form})
     
+    
+@login_required
+def view_profile(request):
+    donations = Donation.objects.filter(email__exact=request.user.email)
+    return render(request, 'profile.html', {'userdata': request.user, 'donations': donations})
+    
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        user_form = UserEditForm(instance = request.user, data=request.POST)
+        profile_form = UserProfileEditForm(instance = request.user.userprofile, data=request.POST, files=request.FILES)
+        
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, "Profile updated successfully")
+        else:
+            messages.error(request, "Error updating your profile")
+    else:
+        user_form = UserEditForm(instance=request.user)
+        profile_form = UserProfileEditForm(instance=request.user.userprofile)
+    
+    return render(request, 'edit_profile.html', {'user_form': user_form, 'profile_form': profile_form})
+        

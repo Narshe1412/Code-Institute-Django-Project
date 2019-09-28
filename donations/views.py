@@ -41,6 +41,12 @@ def checkout(request):
     else:
         payment_form = MakePaymentForm()
         donation_form = DonationForm()
+        
+        if request.user.is_authenticated():
+            donation_form = DonationForm(initial={
+                "full_name" : request.user.first_name + " " + request.user.last_name,
+                "email" : request.user.email
+            })
     return render(request, "checkout.html", {'donation_form': donation_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
         
             

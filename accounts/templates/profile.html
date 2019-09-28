@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block page_header %}User Profile{% endblock %}
+{% block content %}
+    <div class="container">
+
+            <p>Full name: {{ userdata.first_name }} {{ userdata.last_name }}</p>
+            <p>Email: {{ userdata.email }}</p>
+            <p>Phone: {{ userdata.userprofile.phone_numer }} </p>
+            <p><img class="img-circle" src="{{userdata.userprofile.profile.url}}"></img></p>
+            <p> {{userdata}}</p>
+            <p> {{userdata.userprofile.profile}}</p>
+            <a href="{% url 'edit_profile' %}" class="btn btn-success">Edit Profile</a>
+        <hr/>
+        <div class="row">
+            <h2>Donations: </h2>
+            <ul>
+            {% for donation in donations %}
+                <li>{{ donation.date }} - {{ donation.amount }}€</li>
+            {% empty %}
+                <li>Sorry, no donations for this user.</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

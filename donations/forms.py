@@ -15,4 +15,4 @@ class MakePaymentForm(forms.Form):
 class DonationForm(forms.ModelForm):
     class Meta:
         model = Donation
-        fields = ('full_name', 'phone_number', 'amount')
+        fields = ('full_name', 'email', 'amount')
