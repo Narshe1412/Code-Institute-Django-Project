@@ -1,71 +1,73 @@
-{% load static %}
-{% load common_tags %}
+{% load static %} {% load common_tags %}
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Save the World</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="title" content="Save the World">
+    <meta name="deescription" content="#">
+    <link rel="icon" href="https://fe5f9be07ba14ed997985b891ef1c58b.vfs.cloud9.us-east-1.amazonaws.com/static/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!--<link rel="stylesheet" href="{% static 'css/styles.css' %}">-->
+    <link rel="stylesheet" href="https://fe5f9be07ba14ed997985b891ef1c58b.vfs.cloud9.us-east-1.amazonaws.com/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!--Start of the navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Save the World</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <!--<li class="nav-item active"> this needs to be added dinamically-->
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'get_news' %}">News</a>
-                    <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> sr-only also needs to be dinamically for screen readers-->
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'get_blogs' %}">Blog</a>
-                </li>
-                {% if user.is_authenticated or user|is_editor %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Editor Menu
-        </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'new_post' %}">Add New Post</a>
-                        <a class="dropdown-item" href="{% url 'get_all_posts' %}">Show All Entries</a>
-                        {% if user.is_superuser %}
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'admin:index' %}">Admin Panel</a>
-                        {% endif %}
-                    </div>
-                </li>
-                {% endif %}
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'checkout' %}">Donate Now</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav my-2 my-lg-0">
-                {% if user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'view_profile' %}"><i class="fa fa-user"></i>Profile</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i>Logout</a>
-                </li>
-                {% else %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'registration' %}"><i class="fa fa-user-plus"></i>Register</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Login</a>
-                </li>
-                {% endif %}
-            </ul>
+    <header id="header">
+        <!--Start of the navbar-->
+        <div class="top-bar">
+            <div class="logo-brand">
+                <a href="/" alt="Save the World"><img class="logo-brand-img" src="https://fe5f9be07ba14ed997985b891ef1c58b.vfs.cloud9.us-east-1.amazonaws.com/static/img/logo.png" alt="brand-logo"></a>
+            </div>
+            {% if user.is_authenticated or user|is_editor %}
+            <div class="top-badge">
+                <a href="{% url 'new_post' %}" class="btn btn-default"><i class="fa fa-edit"></i>Add New Post</a>
+            </div>
+            {% endif %}
+            <div class="top-badge">
+                <a href="donate.html" class="btn btn-default"><i class="fa fa-thumbs-o-up"></i>Donate</a>
+            </div>
+
         </div>
-    </nav>
-    <!--End of navbar-->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                        </button>
+                </div>
+                
+            {% with url_name=request.resolver_match.url_name %}
+            {# Sets the active link to match the active url pattern #}
+                <div id="navbar2" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="{% if url_name == 'index' %}active{% endif %}"><a href="{% url 'index' %}">HOME</a></li>
+                        <li class="{% if url_name == 'get_news' %}active{% endif %}"><a href="{% url 'get_news' %}">NEWS</a></li>
+                        <li class="{% if url_name == 'get_blogs' %}active{% endif %}"><a href="{% url 'get_blogs' %}">BLOGS</a></li>
+                        {% if user.is_authenticated or user|is_editor %}
+                        <li class="{% if url_name == 'get_all_posts' %}active{% endif %}"><a href="{% url 'get_all_posts' %}">ALL ENTRIES</a></li>
+                        {% if user.is_superuser %}
+                        <li class="{% if url_name == 'admin:index' %}active{% endif %}"><a href="{% url 'admin:index' %}">ADMIN</a></li>
+                        {% endif %} {% endif %} {% if user.is_authenticated %}
+                        <li class="{% if url_name == 'view_profile' %}active{% endif %}"><a href="{% url 'view_profile' %}">PROFILE</a></li>
+                        <li class="{% if url_name == 'logout' %}active{% endif %}"><a href="{% url 'logout' %}">LOGOUT</a></li>
+                        {% else %}
+                        <li class="{% if url_name == 'login' %}active{% endif %}"><a href="{% url 'login' %}">LOGIN</a></li>
+                        <li class="{% if url_name == 'registration' %}active{% endif %}"><a href="{% url 'registration' %}">REGISTER</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            {% endwith %}
+            </div>
+        </nav>
+        <!--End of navbar-->
+    </header>
+
 
     <h1>{% block page_header %}{% endblock %}</h1>
     <hr/>
@@ -82,11 +84,10 @@
     <!--End of content-->
 
     <!--Scripts-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>	    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>	    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    {% block stripe_js %}
-    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    {% block stripe_js %} {% endblock %}
 </body>
 
 </html>

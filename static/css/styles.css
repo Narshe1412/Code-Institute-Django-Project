@@ -1,4 +1,108 @@
-.img-circle {
-    width: 100px;
-    max-height: 100px;
+/* Global Styles*/
+body {
+    background-color: #f3f3f3;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.row {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.btn-default {
+    color: #fff;
+    background-color: #925C3B;
+    border: 2px solid #925C3B;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #D98100;
+    height: 50px;
+}
+
+.logo-brand {
+    display: inline;
+}
+
+.logo-brand-img {
+    padding: 5px 10px;
+    height: 50px;
+}
+
+.top-badge {
+    float: right;
+    margin: 7px 10px;
+}
+
+.top-badge a i {
+    padding-right: 10px;
+}
+
+/* Nav bar */
+.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-default {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(146, 92, 59, 0.87);
+}
+
+.navbar-default .navbar-nav>li>a::after {
+    content: "";
+    display: block;
+    width: 0%;
+    padding-top: 5px;
+    border-bottom: 2px solid #925C3B;
+    transition: .5s;
+    color: #925C3B;
+    font-weight: bolder;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #925C3B;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav>li>a:hover:after {
+    width: 100%;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+    content: "";
+    display: block;
+    border-bottom: none;
+    background-color: transparent;
+    color: #925C3B;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav>.active>a:after {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 5px;
+    border-bottom: 2px solid #925C3B;
+    transition: .5s;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #ddd;
+    background-color: #925c3b;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    border-color: #ddd;
+    background-color: #925c3b;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
 }
