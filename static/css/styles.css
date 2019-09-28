@@ -676,6 +676,11 @@ body {
     animation-name: fadeIn;
 }
 
+.help-block {
+    font-size: 75%;
+    font-style: italic;
+}
+
 
 
 
