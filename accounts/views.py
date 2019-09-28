@@ -3,6 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from accounts.forms import UserLoginForm, UserRegistrationForm, UserEditForm, UserProfileEditForm
 from .models import UserProfile
+from donations.models import Donation
 
 # Create your views here.
 def index(request):
@@ -61,7 +62,8 @@ def registration(request):
     
 @login_required
 def view_profile(request):
-    return render(request, 'profile.html', {'userdata': request.user})
+    donations = Donation.objects.filter(email__exact=request.user.email)
+    return render(request, 'profile.html', {'userdata': request.user, 'donations': donations})
     
 @login_required
 def edit_profile(request):
