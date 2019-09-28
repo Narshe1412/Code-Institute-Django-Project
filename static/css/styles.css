@@ -98,7 +98,6 @@ body {
 .form-control {
     height: 46px;
     border-radius: 0;
-    padding: 12px;
     margin-bottom: 10px;
 }
 
@@ -639,16 +638,16 @@ body {
 
 /* 
 * =====================
-* Login
+* form-card
 * =====================
 */
 
-#login {
+#form-card {
     width: 35%;
     margin: 40px auto 30px;
 }
 
-.login-title {
+.form-card-title {
     text-transform: uppercase;
     letter-spacing: 5px;
     margin-top: 0px;
@@ -763,28 +762,28 @@ section.news {
     }
 }
 
-/* Login page media queries */
+/* form-card page media queries */
 
 @media(max-width:900px) {
-    #login {
+    #form-card {
         width: 40%;
     }
 }
 
 @media(max-width:768px) {
-    #login {
+    #form-card {
         width: 50%;
     }
 }
 
 @media(max-width:500px) {
-    #login {
+    #form-card {
         width: 80%;
     }
 }
 
 @media(max-width:380px) {
-    #login {
+    #form-card {
         width: 90%;
     }
 }
