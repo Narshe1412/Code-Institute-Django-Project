@@ -67,8 +67,26 @@
         <!--End of navbar-->
     </header>
 
-
-
+{% if request.resolver_match.url_name != 'index' %}
+    <section class="page_head">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="page_title">
+                        <h2>{% block page_header %}{% endblock %}</h2>
+                    </div>
+                    <nav id="breadcrumbs">
+                        <ul>
+                            <li></li>
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li>{% block page_title %}{% endblock %}</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
 
 
     <!--Message board-->
