@@ -681,7 +681,61 @@ body {
     font-style: italic;
 }
 
+section.news {
+    margin-bottom: 20px;
+}
 
+/* Main Layout */
+
+/* Left column */
+
+.leftcolumn {
+    float: left;
+    width: 75%;
+}
+
+/* Right column */
+
+.rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+}
+
+/* Fake image */
+
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Real image */
+.post-img {
+    background-color: #aaa;
+    width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+    border: solid 20px rgba(0, 0, 0, 0);
+}
+
+.post-img img {
+    /* Vertical centered */
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Add a card effect for articles */
+
+.card {
+    background-color: #fdfdfd;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.sub_content {
+    padding: 30px 0;
+}
 
 
 /* Media queries*/

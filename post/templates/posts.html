@@ -1,35 +1,24 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block page_title %}{{title|title}}{% endblock %} {% block page_header %}{{title}}{% endblock %} {% block content %}
 
-{% block content %}
-
-{% block page_title %}{{title}}{% endblock %}
-{% block page_header %}{{title}}{% endblock %}
-
-{% for post in posts %}
-
-<div class="row">
-    <div class="col-md-2 col-sm-3 text-center">
-        <a href="#" class="story-img">
-            <img src="{{ post.author.userprofile.profile.url }}" alt="{{ post.author }} profile picture" class="img-circle rounded-circle">
-        </a>
-        <p><span class="boldtext">Author: </span>{{ post.author }}</p>
-    </div>
-    <div class="col-md-10 col-sm-9">
-        <h3>{{ post.title }}</h3>
+<section class="news">
+    <div class="container">
         <div class="row">
-            <div class="col-xs-9">
-                <p>{{ post.content|truncatewords:30 }}</p>
-                <p><a href="{% url 'post_detail' post.id %}" class="btn btn-default">Read more</a></p>
-                <p><span class="boldtext">Published on:</span> {{ post.published_date }}</p>
-                <p><span class="boldtext">Views:</span> {{ post.views }}</p>
-                <p><span class="boldtext">Comments:</span> {{ post.comments.count }}</p>
-                <p><span class="boldtext">Tags:</span> {{ post.tag }}</p>
+            <div class="leftColumn">
+                {% for post in posts %}
+                <div class="card">
+                    <h2>{{ post.title }}</h2>
+                    <h5><strong>Published on:</strong> {{ post.published_date }} <strong>Views:</strong> {{ post.views }} <strong>Comments:</strong> {{ post.comments.count }}</h5>
+                    <div class="post-img"><img src="{{ post.image.url }}"></img></div>
+                    <div>
+                        
+                    <p>{{ post.content|truncatewords:30 }}</p>
+                    <p><a href="{% url 'post_detail' post.id %}" class="btn btn-default">Read more</a></p>
+                    </div>
+                    <h5><strong>Tags:</strong> {{ post.tag|upper }}</h5>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
-    <hr />
-</div>
-
-{% endfor %}
-
+</section>
 {% endblock %}
