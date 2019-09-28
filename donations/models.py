@@ -6,7 +6,7 @@ from decimal import Decimal
 
 class Donation(models.Model):
     full_name = models.CharField(max_length=150)
-    phone_number = models.CharField(max_length=20)
+    email = models.CharField(max_length=50)
     date = models.DateField()
     amount = models.DecimalField(decimal_places=2, default=0.50, max_digits=12, validators=[MinValueValidator(Decimal('0.50'))])
     
