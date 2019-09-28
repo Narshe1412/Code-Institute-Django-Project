@@ -11,7 +11,16 @@
             <p> {{userdata}}</p>
             <p> {{userdata.userprofile.profile}}</p>
             <a href="{% url 'edit_profile' %}" class="btn btn-success">Edit Profile</a>
-
+        <hr/>
+        <div class="row">
+            <h2>Donations: </h2>
+            <ul>
+            {% for donation in donations %}
+                <li>{{ donation.date }} - {{ donation.amount }}€</li>
+            {% empty %}
+                <li>Sorry, no donations for this user.</li>
+            {% endfor %}
+            </ul>
         </div>
     </div>
 
