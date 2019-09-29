@@ -40,7 +40,6 @@ body {
 
 /* Header */
 
-
 .top-bar {
     background-color: #D98100;
     height: 50px;
@@ -527,6 +526,7 @@ body {
 }
 
 /* Main Layout */
+
 section.news {
     margin-bottom: 20px;
 }
@@ -535,6 +535,12 @@ section.news {
     line-height: 30px;
 }
 
+.post-content {
+    padding: 5px;
+    margin-top: 5px;
+    text-align: justify;
+    text-justify: auto;
+}
 
 /* Left column */
 
@@ -560,6 +566,7 @@ section.news {
 }
 
 /* Real image */
+
 .post-img {
     background-color: #aaa;
     width: 100%;
@@ -568,14 +575,27 @@ section.news {
     border: solid 20px rgba(0, 0, 0, 0);
 }
 
-.post-img img {
+.full-post-img {
+    background-color: #aaa;
+    width: 100%;
+    overflow: hidden;
+    border: solid 20px rgba(0, 0, 0, 0);
+}
+
+.post-img img,
+.full-post-img img {
     /* Vertical centered */
     margin-left: 50%;
     transform: translateX(-50%);
 }
 
 .profile-img {
-    width:100%;
+    width: 100%;
+}
+
+.author-img {
+    max-width: 14rem;
+    margin: 1.5rem;
 }
 
 /* Add a card effect for articles */
@@ -592,6 +612,7 @@ section.news {
 
 
 /* Login form */
+
 .form-heading {
     margin: 20px 0;
     padding-bottom: 5px;
@@ -712,8 +733,9 @@ section.news {
     background-image: none;
 }
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: rgb(146, 92, 59, 0.2);
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+    background-color: rgb(146, 92, 59, 0.2);
 }
 
 /* form-card page media queries */
@@ -740,7 +762,10 @@ section.news {
     #form-card {
         width: 90%;
     }
-    /*.navbar-toggle {*/
-    /*        right: -12rem;*/
-    /*}*/
+    .small-hidden {
+        display: none;
+    }
+    .top-badge a i {
+        padding-right: 0;
+    }
 }

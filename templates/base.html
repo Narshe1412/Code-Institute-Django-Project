@@ -28,11 +28,11 @@
             </div>
             {% if user.is_authenticated or user|is_editor %}
             <div class="top-badge">
-                <a href="{% url 'new_post' %}" class="btn btn-default"><i class="fa fa-edit"></i>Add New Post</a>
+                <a href="{% url 'new_post' %}" class="btn btn-default"><i class="fa fa-edit"></i><span class="small-hidden">New Post</span></a>
             </div>
             {% endif %}
             <div class="top-badge">
-                <a href="{% url 'checkout' %}" class="btn btn-default"><i class="fa fa-thumbs-o-up"></i>Donate</a>
+                <a href="{% url 'checkout' %}" class="btn btn-default"><i class="fa fa-thumbs-o-up"></i><span class="small-hidden">Donate</span></a>
             </div>
 
         </div>
