@@ -54,13 +54,14 @@ def show_post_form(request, pk=None):
     the post to edit. Otherwise it will be an empty form to create anew
     """
     post = get_object_or_404(Post, pk=pk) if pk else None
+    header = "Edit \"{0}\"".format(post.title) if pk else "New Post"
+    title = "Edit #{0}".format(pk) if pk else "New Post"
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.instance.author = request.user
             post = form.save()
             return redirect(post_detail, post.pk)
-    
     else:
         form = PostForm(instance=post)
-    return render(request, "postform.html", {"form":form})
+    return render(request, "postform.html", {"form":form, "title": title, "header": header})
