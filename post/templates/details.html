@@ -43,12 +43,12 @@
                             <p>Please login to add comments...</p>
                     {% endif %}
                     
-                    <div class="row">
+                    <div class="row comment-list">
                         <div class="col-xs-9">
                             {% for comment in post.comments.all %}
-                            <div class="comment">
-                                <div class="date">{{ comment.created }}</div>
-                                <strong>{{ comment.author }}</strong>
+                            <div class="row">
+                                <img src="{{ post.author.userprofile.profile.url }}" alt="{{ post.author }} profile picture" class="comment-img pull-left img-responsive img-circle" name="author"></img>
+                                <p><strong>{{ comment.author|title }}</strong> wrote on <span class="date">{{ comment.created }}</span></p>
                                 <p>{{ comment.content|linebreaks }}</p>
                                 <hr />
                             </div>

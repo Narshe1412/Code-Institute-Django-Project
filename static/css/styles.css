@@ -542,6 +542,10 @@ section.news {
     text-justify: auto;
 }
 
+.comment-list {
+    margin-top: 2rem;
+}
+
 /* Left column */
 
 .leftcolumn {
@@ -596,6 +600,11 @@ section.news {
 .author-img {
     max-width: 14rem;
     margin: 1.5rem;
+}
+
+.comment-img {
+    max-width: 5rem;
+    margin: 0 2rem 0.5rem 0.5rem;
 }
 
 /* Add a card effect for articles */
