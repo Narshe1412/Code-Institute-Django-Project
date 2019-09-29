@@ -601,6 +601,10 @@ section.news {
     transform: translateX(-50%);
 }
 
+.profile-img {
+    width:100%;
+}
+
 /* Add a card effect for articles */
 
 .card {
@@ -736,4 +740,7 @@ section.news {
 }
 
 
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: rgb(146, 92, 59, 0.2);
+}
 

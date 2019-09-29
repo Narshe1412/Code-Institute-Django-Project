@@ -63,6 +63,10 @@ def registration(request):
 @login_required
 def view_profile(request):
     donations = Donation.objects.filter(email__exact=request.user.email)
+    print (request.user, request.user.userprofile)
+    if request.user.userprofile == None:
+        print("Userprofile is none")
+        request.user.userprofile = {'profile': None, 'phone_numer': None}
     return render(request, 'profile.html', {'userdata': request.user, 'donations': donations})
     
 @login_required

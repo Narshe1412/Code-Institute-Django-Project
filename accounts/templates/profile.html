@@ -1,28 +1,59 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block page_header %}User Profile{% endblock %} {% block page_title %}Profile{% endblock %} {% block content %}
 
-{% block page_header %}User Profile{% endblock %}
-{% block page_title %}Profile{% endblock %}
-{% block content %}
+
+<section class="news">
     <div class="container">
-
-            <p>Full name: {{ userdata.first_name }} {{ userdata.last_name }}</p>
-            <p>Email: {{ userdata.email }}</p>
-            <p>Phone: {{ userdata.userprofile.phone_numer }} </p>
-            <p><img class="img-circle" src="{{userdata.userprofile.profile.url}}"></img></p>
-            <p> {{userdata}}</p>
-            <p> {{userdata.userprofile.profile}}</p>
-            <a href="{% url 'edit_profile' %}" class="btn btn-success">Edit Profile</a>
-        <hr/>
         <div class="row">
-            <h2>Donations: </h2>
-            <ul>
-            {% for donation in donations %}
-                <li>{{ donation.date }} - {{ donation.amount }}€</li>
-            {% empty %}
-                <li>Sorry, no donations for this user.</li>
-            {% endfor %}
-            </ul>
+            <div class="col-md-3 col-xs-12">
+                <div class="card">
+                    <h2>User</h2>
+                    <p><strong>{{userdata}}</strong></p>
+                    {% if userdata.userprofile.profile %}
+                    <div class="profile-img">
+                        <img class="img-responsive img-thumbnail" src="{{userdata.userprofile.profile.url}}"></img>
+                    </div>
+                    {% else %}
+                    <div class="fakeimg" style="height:100px;">
+                        No picture
+                    </div>
+                    {% endif %}
+                </div>
+
+            </div>
+            <div class="col-md-9 col-xs-12">
+                <div class="card">
+                    <p><strong>Full name:</strong> {{ userdata.first_name }} {{ userdata.last_name }}</p>
+                    <p><strong>Email:</strong> {{ userdata.email }}</p>
+                    <p><strong>Phone:</strong> {% if userdata.userprofile.phone_number %} {{ userdata.userprofile.phone_numer }} {% endif %}
+                    </p>
+                    <a href="{% url 'edit_profile' %}" class="btn btn-default">Edit Profile</a>
+                </div>
+                <div class="card">
+                    <h3>Donations</h3>
+                    <table class="table table-hover">
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Amount
+                        </th>
+                        {% for donation in donations %}
+                        <tr>
+                            <td>
+                                {{ donation.date }}
+                            </td>
+                            <td>
+                                {{ donation.amount }}€
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <li>Sorry, no donations for this user.</li>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
-
+</section>
 {% endblock %}
