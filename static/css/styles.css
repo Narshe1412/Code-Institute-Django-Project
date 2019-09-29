@@ -469,7 +469,7 @@ body {
 /* Page top header and breadcrumps */
 
 .page_head {
-    background: url("../images/pattern-1.png") repeat;
+    background: url("../img/pattern-1.png") repeat;
     border-bottom: 1px solid #EAEAEA;
     padding: 20px 0;
 }
@@ -510,7 +510,7 @@ body {
     color: #888;
     padding: 0 11px 0 0;
     margin: 0 0 0 5px;
-    background: url(../images/breadcrumbs.png) no-repeat 100% 50%;
+    background: url(../img/breadcrumbs.png) no-repeat 100% 50%;
 }
 
 #breadcrumbs ul li:last-child a,
