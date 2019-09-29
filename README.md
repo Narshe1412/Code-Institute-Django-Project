@@ -118,9 +118,10 @@ In Heroku, these variables are provided as part of the environment variables the
 
 ### Content
 - The Accounts and Post apps were created as part as the learning material from the [Full Stack Developer Diploma by Code Institute](https://codeinstitute.net/full-stack-software-development-diploma/).
+- Logo and brand design colours provided by freelancer Tabish Ali
 
 ### Media
-- The photos used in this site were obtained from ...
+- The pictures from the website have been taken from Cork Nature Network website: https://corknaturenetwork.ie/
 
 ### Acknowledgements
 

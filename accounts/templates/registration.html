@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
+{% load bootstrap_tags %}
 
-{% block page_title %}Registration Page{% endblock %}
+{% block page_title %}Registration{% endblock %}
 {% block page_header %}User Registration{% endblock %}
 {% block content %}
-<p>If you already have an account yo can <a href="{% url 'login'%}">login here</a></p>
-    <form method="POST">
-        {% csrf_token %}
-        {{ registration_form.as_p }}
-        <button type="submit">Register</button>
-    </form>
+<section id="form-card">
+        <form method="POST" data-wow-duration="1s" data-wow-delay="1s" class="form-signin form-horizontal wow fadeIn animated animated" role="form">
+            <div>
+                <h2 class="form-heading text-center" style="text-transform: uppercase; letter-spacing: 5px; margin-top: 0px;">Registration Panel</h2>
+                <p>If you already have an account you can login <a href="{% url 'login'%}">here</a></p>
+                {% csrf_token %}
+                {{ registration_form|as_bootstrap }}
+                
+            </div>
+            <button data-wow-duration="2s" data-wow-delay="s" type="submit" class="btn btn-primary btn-block ladda-button fadeIn animated" data-style="zoom-in">
+                <span class="ladda-label">Register</span>
+            </button>
+        </form>
+    </section>
 {% endblock %}

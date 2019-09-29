@@ -1,48 +1,31 @@
-{% extends 'base.html' %}
-{% load static %}
-{% load bootstrap_tags %}
+{% extends 'base.html' %} {% load static %} {% load bootstrap_tags %}
+{% block page_header %}Donate to a good cause{% endblock %}
+{% block page_title %}Donate{% endblock %}
 
 {% block content %}
-<div class="row row-flex">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-        <div class="panel-body">
-            <div class="product"></div>
-            <div class="caption">
-                Write here the description of the donation or sumthing
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <p>Total</p>
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span> Total donated</p>
-</div>
-<form method="POST" role="form" id="payment-form" action="{% url 'checkout' %}">
-    <legend>Payment Details</legend>
-    <div id="credit-card-errors" style="display:none">
-        <div class="alert-message block-message error" id="stripe-error-message"></div>
-    </div>
-    
-    <div class="form-group col-md-6">
-        {{ donation_form|as_bootstrap }}
-    </div>
-    <div class="form-group col-md-6">
-        {{ payment_form|as_bootstrap }}
-    </div>
-    
-    {% csrf_token %}
-    
-    <div class="form-group col-md-12">
-        <input type="submit" name="commit" value="Submit Donation" class="btn btn-primary" id="submit_payment_btn">
-    </div>
-</form>
-{% endblock %}
 
-{% block stripe_js %}
+<section id="form-card">
+    <form method="POST" role="form" id="payment-form" action="{% url 'checkout' %}" data-wow-duration="1s" data-wow-delay="1s" class="form-signin form-horizontal wow fadeIn animated animated">
+        {% csrf_token %}
+        <div>
+            <h2 class="form-heading text-center form-card-title">Payment Details</h2>
+            <div id="credit-card-errors" style="display:none">
+                <div class="alert-message block-message error" id="stripe-error-message"></div>
+            </div>
+            {{ donation_form|as_bootstrap }} {{ payment_form|as_bootstrap }}
+        </div>
+        <button style="margin-top: 20px;" data-wow-duration="2s" data-wow-delay="s" type="submit" class="btn btn-primary btn-block ladda-button fadeIn animated" data-style="zoom-in">
+                            <span class="ladda-label">Donate</span>
+                        </button>
+    </form>
+</section>
+
+
+{% endblock %} {% block stripe_js %}
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
     //<![CDATA[
-        Stripe.publishableKey = '{{ publishable }}'
+    Stripe.publishableKey = '{{ publishable }}'
     //]]>
 </script>
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>

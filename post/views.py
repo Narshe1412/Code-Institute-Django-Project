@@ -18,9 +18,11 @@ def get_all_posts(request, show_only=None):
     """
     if(show_only == None):
         posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-is_important', '-published_date')
+        title = "All Posts"
     else:
         posts = Post.objects.filter(post_type__exact=show_only.name).filter(published_date__lte=timezone.now()).order_by('-is_important', '-published_date')
-    return render(request, "posts.html", {"posts": posts})
+        title = show_only.name
+    return render(request, "posts.html", {"posts": posts, "title": title})
     
     
 def post_detail(request, pk):
@@ -52,13 +54,14 @@ def show_post_form(request, pk=None):
     the post to edit. Otherwise it will be an empty form to create anew
     """
     post = get_object_or_404(Post, pk=pk) if pk else None
+    header = "Edit \"{0}\"".format(post.title) if pk else "New Post"
+    title = "Edit #{0}".format(pk) if pk else "New Post"
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.instance.author = request.user
             post = form.save()
             return redirect(post_detail, post.pk)
-    
     else:
         form = PostForm(instance=post)
-    return render(request, "postform.html", {"form":form})
+    return render(request, "postform.html", {"form":form, "title": title, "header": header})
