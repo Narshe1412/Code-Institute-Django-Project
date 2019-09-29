@@ -4,12 +4,19 @@
 {% block page_header %}User Profile{% endblock %}
 {% block page_title %}Profile{% endblock %}
 {% block content %}
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    
-    {{ user_form|as_bootstrap }}
-    {{ profile_form|as_bootstrap }}
-    <input type="submit" value="Save Changes"/>
-</form>
+<section id="form-card">
+        <form method="POST" data-wow-duration="1s" data-wow-delay="1s" class="form-signin form-horizontal wow fadeIn animated animated" role="form" enctype="multipart/form-data" >
+            <div>
+                <h2 class="form-heading text-center form-card-title">Edit Profile</h2>
+                {% csrf_token %}
+                {{ user_form|as_bootstrap }}
+                {{ profile_form|as_bootstrap }}
+            </div>
+            <button data-wow-duration="2s" data-wow-delay="s" type="submit" class="btn btn-primary btn-block ladda-button fadeIn animated" data-style="zoom-in">
+                <span class="ladda-label">Save Changes</span>
+            </button>
+        </form>
+    </section>
+
 
 {% endblock %}
