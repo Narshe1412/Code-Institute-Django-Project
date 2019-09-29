@@ -740,7 +740,7 @@ section.news {
     #form-card {
         width: 90%;
     }
-    .navbar-toggle {
-            right: -12rem;
-    }
+    /*.navbar-toggle {*/
+    /*        right: -12rem;*/
+    /*}*/
 }

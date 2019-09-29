@@ -7,7 +7,7 @@
 
 <section id="form-card">
         <form method="POST" data-wow-duration="1s" data-wow-delay="1s" class="form-signin form-horizontal wow fadeIn animated animated" role="form" >
-            <div>
+            <div class="row">
                 <h2 class="form-heading text-center form-card-title">Login Panel</h2>
                 {% csrf_token %}
                 {{ login_form|as_bootstrap }}
