@@ -84,6 +84,7 @@ def edit_profile(request):
             user_form.save()
             profile_form.save()
             messages.success(request, "Profile updated successfully")
+            return view_profile(request)
         else:
             messages.error(request, "Error updating your profile")
     else:
