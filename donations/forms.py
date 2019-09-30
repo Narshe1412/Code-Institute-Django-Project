@@ -2,6 +2,7 @@ from django import forms
 from .models import Donation
 
 class MakePaymentForm(forms.Form):
+    """ Creates a form that will allow the user to make payments """
     MONTH_CHOICES = [(i, i) for i in range(1, 13)]
     YEAR_CHOICES = [(i, i) for i in range(2019, 2040)]
     

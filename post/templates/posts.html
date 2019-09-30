@@ -6,6 +6,7 @@
             <div class="leftColumn">
                 {% for post in posts %}
                 <div class="card">
+                    <!-- Important Marker Thumbtack -->
                     {% if post.is_important %}
                     <div class="important-marker pull-right"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
                     {% endif %}
@@ -14,11 +15,11 @@
                     <div class="post-img"><img src="{{ post.image.url }}"></img>
                     </div>
                     <div>
-
                         <p>{{ post.content|truncatewords:30 }}</p>
                         <p><a href="{% url 'post_detail' post.id %}" class="btn btn-default">Read more</a></p>
                     </div>
                     <h5><strong>Tags:</strong> {{ post.tag|upper }}</h5>
+                    <!-- Social links -->
                     <div class="row">
                         <div class="col-xs-1">
                             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="{{post.title}}" data-url="{% url 'post_detail' post.id %}" data-hashtags="SaveTheWorld" data-related="savetheworld.fake" data-show-count="false">Tweet</a>

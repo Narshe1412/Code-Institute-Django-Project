@@ -42,4 +42,5 @@ class Post(models.Model):
         return self.title
         
     def __str__(self):
+        """ Returns a pretty print of the post so it can be read in the Admin page """
         return "{0}-{1}-{2}".format(self.id, self.title, self.author)

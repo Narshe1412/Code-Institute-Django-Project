@@ -22,7 +22,7 @@
 
 - Events Feature
 
-  - [Donation History](test-case-events.md#events-page)
+  - [Events Calendar](test-case-events.md#events-page)
 
 - Carousel Feature
 

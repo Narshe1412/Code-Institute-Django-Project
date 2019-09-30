@@ -6,9 +6,11 @@ from .forms import PostForm
 from comments.forms import CommentForm
 
 def get_news(request):
+    """ Get all the posts that are of type NEWS """
     return get_all_posts(request, PostType.NEWS)
     
 def get_blogs(request):
+    """ Get all the posts that are of type BLOG """
     return get_all_posts(request, PostType.BLOG)
 
 def get_all_posts(request, show_only=None):

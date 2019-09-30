@@ -29,8 +29,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# List of available hosts that can run the system
 ALLOWED_HOSTS = [os.environ.get("C9_HOSTNAME"), '127.0.0.1', os.getenv("CURRENT_HOST")]
-
 
 # Application definition
 
@@ -77,10 +77,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                'portfolio.context_processors.site_config'
+                'portfolio.context_processors.site_config' # Custom processor
             ],
             'libraries': {
-                'common_tags': 'home.templatetags.common',
+                'common_tags': 'home.templatetags.common', # Custom tags
             },
         },
     },
@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
+# Uses a local sqlite database if the postgres database is not available in the system
 if "DATABASE_URL" in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
