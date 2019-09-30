@@ -47,22 +47,18 @@ Users will be able to contribute to a non profit organization by checking their 
 - Event signup won't be included at this point. The calendar and comments would help organize the event publicly. A contact email or phone would be shared if users need more information about a specific event.
 
 ## UX
-TODO
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
-
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
 ### Initial mockups
 
-![Initial mockup for a possible portfolio project](docs/initial01.jpg 'Desktop design')
-![Initial mockup for orders and order history](docs/initial03.jpg 'Desktop design')
-![Initial mockup for the NPO project](docs/initial02.jpg 'Desktop design')
+![Initial mockup for a possible portfolio project](docs/initial01.jpg "Desktop design")
+![Initial mockup for orders and order history](docs/initial03.jpg "Desktop design")
+![Initial mockup for the NPO project](docs/initial02.jpg "Desktop design")
 
 ### Brand Design and Palette
 
 [Paletton file](docs/paletton.html)
-![Palette file](docs/palette.png 'Palette and colour coding')
-![Mockup with logo and brand colors](docs/mockup-with-logo.png 'Advanced mockup with logo and brand colors')
+![Palette file](docs/palette.png "Palette and colour coding")
+![Mockup with logo and brand colors](docs/mockup-with-logo.png "Advanced mockup with logo and brand colors")
 
 ## Technologies Used
 
@@ -72,6 +68,8 @@ This section is also where you would share links to any wireframes, mockups, dia
   - The project uses **JQuery** to simplify DOM manipulation.
 - [Bootstrap](https://getbootstrap.com/)
   - The project uses **Bootstrap** to create a responsive grid system to organize content in the website and as a base for other custom CSS styles.
+- [Google Calendar](https://calendar.google.com/)
+  - The project uses **Google Calendar** to to provide the users of day and time for events planned by the administrators and organizers.
 - [Stripe](https://stripe.com/)
   - The project implements **Stripe Payments** to allow users to process payments over the platform.
 - [Heroku](https://www.heroku.com/)
@@ -89,16 +87,14 @@ A [detailed Test Plan](docs/test-cases.md) can be found in the following [link](
 
 ### Browser Compatibility
 
-TODO
-
 The application should be compatible with the latest versions in all browsers thanks to the use of polyfills. There are some fields that behave erratically in Internet Explorer but the application is functional despite these graphic issues
 
-| Vendor            | Version | Compatibility status                           |
-| ----------------- | ------- | ---------------------------------------------- |
-| Google Chrome     |         | Fully Compatible                               |
-| Mozilla Firefox   |         | Fully Compatible                               |
-| Microsoft Edge    |         | Fully Compatible                               |
-| Internet Explorer |         | Functional, with some visual errors due to CSS |
+| Vendor            | Version        | Compatibility status                           |
+| ----------------- | -------------- | ---------------------------------------------- |
+| Google Chrome     | 77.0.3865.90   | Fully Compatible                               |
+| Mozilla Firefox   | 69.0.1         | Fully Compatible                               |
+| Microsoft Edge    | 44.17763.1.0   | Fully Compatible                               |
+| Internet Explorer | 11.737.17763.0 | Functional, with some visual errors due to CSS |
 
 ## Deployment
 
@@ -132,4 +128,4 @@ In Heroku, these variables are provided as part of the environment variables the
 
 - I received inspiration for this project from the chaos that humanity is causing to the planet. Remember, the planet will endure, as it has endured 5 previous mass extinctions. The ones that won't probably survive is the human race, so we're really not "saving the planet" but "saving ourselves".
 
-***End of transmission
+\*\*\*End of transmission
