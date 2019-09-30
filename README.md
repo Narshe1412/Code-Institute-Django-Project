@@ -47,12 +47,8 @@ Users will be able to contribute to a non profit organization by checking their 
 - Event signup won't be included at this point. The calendar and comments would help organize the event publicly. A contact email or phone would be shared if users need more information about a specific event.
 
 ## UX
-
+TODO
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
-
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-
-- As a user type, I want to perform an action, so that I can achieve a goal.
 
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
@@ -62,7 +58,11 @@ This section is also where you would share links to any wireframes, mockups, dia
 ![Initial mockup for orders and order history](docs/initial03.jpg 'Desktop design')
 ![Initial mockup for the NPO project](docs/initial02.jpg 'Desktop design')
 
+### Brand Design and Palette
 
+[Paletton file](docs/paletton.html)
+![Palette file](docs/palette.png 'Palette and colour coding')
+![Mockup with logo and brand colors](docs/mockup-with-logo.png 'Advanced mockup with logo and brand colors')
 
 ## Technologies Used
 
@@ -81,13 +81,7 @@ This section is also where you would share links to any wireframes, mockups, dia
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+This project does not include testing automation as most of the business logic is just data handling that is automatically performed by the django framework. Automating user actions and UI is better to be handled with the visual cues of a real human therefore all testing has been performed as outlined in the Manual Testing steps below.
 
 ### Manual Testing
 
@@ -95,7 +89,7 @@ A [detailed Test Plan](docs/test-cases.md) can be found in the following [link](
 
 ### Browser Compatibility
 
-NYI
+TODO
 
 The application should be compatible with the latest versions in all browsers thanks to the use of polyfills. There are some fields that behave erratically in Internet Explorer but the application is functional despite these graphic issues
 
@@ -108,7 +102,7 @@ The application should be compatible with the latest versions in all browsers th
 
 ## Deployment
 
-The project has been deployed to Heroku. In order to make it work the following environment variables must be defined:
+The project has been deployed to Heroku using Github and Travis as pipeline. In order to make it work the following environment variables must be defined:
 
 - SECRET_KEY
 - STRIPE_PUBLISHABLE
@@ -127,13 +121,15 @@ In Heroku, these variables are provided as part of the environment variables the
 
 ### Content
 
-- The Accounts and Post apps were created as part as the learning material from the [Full Stack Developer Diploma by Code Institute](https://codeinstitute.net/full-stack-software-development-diploma/).
-- Logo and brand design colours provided by freelancer Tabish Ali
+- The Accounts and Post apps were adapted as part of the learning material from the [Full Stack Developer Diploma by Code Institute](https://codeinstitute.net/full-stack-software-development-diploma/).
+- Logo, favicon and brand design colours provided by freelancer Tabish Ali
 
 ### Media
 
-- The pictures from the website have been taken from Cork Nature Network website: https://corknaturenetwork.ie/
+- The pictures from the website have been taken from Cork Nature Network website: [Cork Nature Network Website](https://corknaturenetwork.ie/)
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- I received inspiration for this project from the chaos that humanity is causing to the planet. Remember, the planet will endure, as it has endured 5 previous mass extinctions. The ones that won't probably survive is the human race, so we're really not "saving the planet" but "saving ourselves".
+
+***End of transmission
