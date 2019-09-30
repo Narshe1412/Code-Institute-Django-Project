@@ -29,6 +29,13 @@
                     <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a> {% endif %}
                     {% if post.post_type != 'BLOG' %}<a href="{% url 'get_news' %}" class="btn btn-default">Back to News</a>{% endif%}
                     {% if post.post_type != 'NEWS' %}<a href="{% url 'get_blogs' %}" class="btn btn-default">Back to Blog</a>{% endif%}
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="{{post.title}}" data-url="{% url 'post_detail' post.id %}" data-hashtags="SaveTheWorld" data-related="savetheworld.fake" data-show-count="false">Tweet</a>
+                        </div>
+                        <div class="fb-share-button col-xs-1" data-href="{% url 'post_detail' post.id %}" data-layout="button_count">
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="card">
