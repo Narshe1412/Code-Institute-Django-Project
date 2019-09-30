@@ -21,10 +21,10 @@
                     <h5><strong>Tags:</strong> {{ post.tag|upper }}</h5>
                     <!-- Social links -->
                     <div class="row">
-                        <div class="col-xs-1">
+                        <div class="col-xs-4 col-sm-1">
                             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="{{post.title}}" data-url="{% url 'post_detail' post.id %}" data-hashtags="SaveTheWorld" data-related="savetheworld.fake" data-show-count="false">Tweet</a>
                         </div>
-                        <div class="fb-share-button col-xs-1" data-href="{% url 'post_detail' post.id %}" data-layout="button_count">
+                        <div class="fb-share-button col-xs-4 col-sm-1" data-href="{% url 'post_detail' post.id %}" data-layout="button_count">
                         </div>
                     </div>
                 </div>
