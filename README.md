@@ -89,11 +89,6 @@ A [detailed Test Plan](docs/test-cases.md) can be found in the following [link](
 
 ### Browser Compatibility
 
-<<<<<<< HEAD
-TODO
-
-=======
->>>>>>> docs
 The application should be compatible with the latest versions in all browsers thanks to the use of polyfills. There are some fields that behave erratically in Internet Explorer but the application is functional despite these graphic issues
 
 | Vendor            | Version        | Compatibility status                           |
@@ -135,8 +130,4 @@ In Heroku, these variables are provided as part of the environment variables the
 
 - I received inspiration for this project from the chaos that humanity is causing to the planet. Remember, the planet will endure, as it has endured 5 previous mass extinctions. The ones that won't probably survive is the human race, so we're really not "saving the planet" but "saving ourselves".
 
-<<<<<<< HEAD
-***End of transmission
-=======
 \*\*\*End of transmission
->>>>>>> docs
