@@ -5,18 +5,19 @@ from accounts.forms import UserLoginForm, UserRegistrationForm, UserEditForm, Us
 from .models import UserProfile
 from donations.models import Donation
 
-# Create your views here.
 def index(request):
     return render(request, "index.html")
     
 @login_required
 def logout(request):
+    """ Creates a logout view that removes the user from the website """
     auth.logout(request)
     messages.success(request, "You have been logged out")
     return redirect(reverse('index'))
     
 
 def login(request):
+    """ Logs the user into the website """
     if request.user.is_authenticated:
         return redirect(reverse('index'))
     if request.method == "POST":
@@ -36,6 +37,7 @@ def login(request):
     return render(request, 'login.html', {"login_form": login_form})
     
 def registration(request):
+    """ Registers a user into the system and records all the registration fields in the dabtase """
     if request.user.is_authenticated:
         return redirect(reverse('index'))
     
@@ -45,6 +47,7 @@ def registration(request):
         if registration_form.is_valid():
             registration_form.save()
             
+            ## Authenticates the user after registration
             user = auth.authenticate(username=request.POST['username'], password=request.POST['password1'])
             
             if user:
@@ -62,15 +65,17 @@ def registration(request):
     
 @login_required
 def view_profile(request):
+    """ Creates a view with all the fields that conforms the User Profile, including donations """
     donations = Donation.objects.filter(email__exact=request.user.email)
-    print (request.user, request.user.userprofile)
+    
+    ## Fallback to avoid user errors trying to access a profile that does not exists
     if request.user.userprofile == None:
-        print("Userprofile is none")
         request.user.userprofile = {'profile': None, 'phone_numer': None}
     return render(request, 'profile.html', {'userdata': request.user, 'donations': donations})
     
 @login_required
 def edit_profile(request):
+    """ Creates a view that allows the user to edit its profile fields """
     if request.method == 'POST':
         user_form = UserEditForm(instance = request.user, data=request.POST)
         profile_form = UserProfileEditForm(instance = request.user.userprofile, data=request.POST, files=request.FILES)

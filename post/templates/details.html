@@ -9,6 +9,7 @@
 <section class="news">
     <div class="container">
         <div class="row">
+            <!-- Post details -->
             <div class="leftColumn">
                 <div class="card">
                     {% if post.image %}
@@ -38,6 +39,7 @@
                     </div>
                 </div>
                 
+                <!-- Comments form -->
                 <div class="card">
                     <h2>Comments: </h2>
                     {% if comment_form and user.is_authenticated %}
@@ -50,11 +52,12 @@
                             <p>Please login to add comments...</p>
                     {% endif %}
                     
+                    <!-- Comments List -->
                     <div class="row comment-list">
                         <div class="col-xs-9">
                             {% for comment in post.comments.all %}
                             <div class="row">
-                                <img src="{{ post.author.userprofile.profile.url }}" alt="{{ post.author }} profile picture" class="comment-img pull-left img-responsive img-circle" name="author"></img>
+                                <img src="{{ comment.author.userprofile.profile.url }}" alt="{{ post.author }} profile picture" class="comment-img pull-left img-responsive img-circle" name="author"></img>
                                 <p><strong>{{ comment.author|title }}</strong> wrote on <span class="date">{{ comment.created }}</span></p>
                                 <p>{{ comment.content|linebreaks }}</p>
                                 <hr />

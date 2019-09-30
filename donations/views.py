@@ -5,10 +5,11 @@ from django.conf import settings
 from django.utils import timezone
 import stripe
 
-# Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
 
 def checkout(request):
+    """ Handles the payment form and the save operation using the Stripe framework """
+
     if request.method == "POST":
         donation_form = DonationForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
@@ -20,6 +21,7 @@ def checkout(request):
             
         
             try:
+                ## Creates a charge to send to Stripe
                 customer = stripe.Charge.create(
                     amount = int(donation.amount * 100),
                     currency = "EUR",
@@ -31,7 +33,6 @@ def checkout(request):
                 
             if customer.paid:
                 messages.success(request, "Payment successful!")
-                
                 return redirect(reverse('index'))
             else:
                 messages.error(request, "Unable to get payment")
@@ -41,7 +42,7 @@ def checkout(request):
     else:
         payment_form = MakePaymentForm()
         donation_form = DonationForm()
-        
+        ## Adds starting information for the charge if the user is logged in. This can be modified by the user, but we help him
         if request.user.is_authenticated():
             donation_form = DonationForm(initial={
                 "full_name" : request.user.first_name + " " + request.user.last_name,

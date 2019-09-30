@@ -4,6 +4,7 @@
 <section class="news">
     <div class="container">
         <div class="row">
+            <!-- Profile picture section -->
             <div class="col-md-3 col-xs-12">
                 <div class="card">
                     <h2>User</h2>
@@ -18,8 +19,8 @@
                     </div>
                     {% endif %}
                 </div>
-
             </div>
+            <!-- Profile details section -->
             <div class="col-md-9 col-xs-12">
                 <div class="card">
                     <p><strong>Full name:</strong> {{ userdata.first_name }} {{ userdata.last_name }}</p>
@@ -28,6 +29,8 @@
                     </p>
                     <a href="{% url 'edit_profile' %}" class="btn btn-default">Edit Profile</a>
                 </div>
+
+                <!-- Donations History -->
                 <div class="card">
                     <h3>Donations</h3>
                     <table class="table table-hover">
