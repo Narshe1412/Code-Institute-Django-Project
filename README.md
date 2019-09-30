@@ -57,7 +57,9 @@ Users will be able to contribute to a non profit organization by checking their 
 ### Brand Design and Palette
 
 [Paletton file](docs/paletton.html)
+
 ![Palette file](docs/palette.png "Palette and colour coding")
+
 ![Mockup with logo and brand colors](docs/mockup-with-logo.png "Advanced mockup with logo and brand colors")
 
 ## Technologies Used
