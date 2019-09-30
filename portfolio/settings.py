@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'donations',
     'comments',
+    'events'
 ]
 
 MIDDLEWARE = [

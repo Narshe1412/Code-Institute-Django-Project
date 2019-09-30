@@ -52,6 +52,7 @@
                         <li class="{% if url_name == 'index' %}active{% endif %}"><a href="{% url 'index' %}">HOME</a></li>
                         <li class="{% if url_name == 'get_news' %}active{% endif %}"><a href="{% url 'get_news' %}">NEWS</a></li>
                         <li class="{% if url_name == 'get_blogs' %}active{% endif %}"><a href="{% url 'get_blogs' %}">BLOGS</a></li>
+                        <li class="{% if url_name == 'view_events' %}active{% endif %}"><a href="{% url 'view_events' %}">EVENTS</a></li>
                         {% if user.is_authenticated or user|is_editor %}
                         <li class="{% if url_name == 'get_all_posts' %}active{% endif %}"><a href="{% url 'get_all_posts' %}">ALL ENTRIES</a></li>
                         {% if user.is_superuser %}
@@ -142,6 +143,7 @@
                             <li><a href="{% url 'index' %}">Home</a></li>
                             <li><a href="{% url 'get_news' %}">News</a></li>
                             <li><a href="{% url 'get_blogs' %}">Blog</a></li>
+                            <li><a href="{% url 'view_events' %}">Events</a></li>
                             <li><a href="{% url 'registration' %}">Register</a></li>
                         </ul>
                     </div>
