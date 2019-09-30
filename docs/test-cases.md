@@ -16,6 +16,9 @@
   - [Add Comments to Posts](test-case-post.md#comments)
 
 - Donate Feature
+  - [Donation Page](test-case-donations.md#donation-page)
+  - [Donation History](test-case-donations.md#donation-history)
+
 - Events Feature
 
 example:
