@@ -158,6 +158,11 @@ body {
     margin: auto;
 }
 
+.slideshow-img {
+    max-height: 60vh;
+    width: 100%;
+}
+
 
 /* Caption text */
 
