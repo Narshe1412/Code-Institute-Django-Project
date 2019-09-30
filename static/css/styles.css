@@ -611,6 +611,10 @@ section.news {
     margin: 0 2rem 0.5rem 0.5rem;
 }
 
+.social-buttons {
+    margin-top: 2rem;
+}
+
 /* Add a card effect for articles */
 
 .card {
