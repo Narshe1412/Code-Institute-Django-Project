@@ -9,7 +9,14 @@
   - [User Permissions](test-case-user.md#user-permissions)
 
 - News / Blog Feature
+
+  - [Display List of Posts](test-case-post.md#display-posts)
+  - [Add New Post](test-case-post.md#add-post)
+  - [Edit Posts](test-case-post.md#edit-post)
+  - [Add Comments to Posts](test-case-post.md#comments)
+
 - Donate Feature
+- Events Feature
 
 example:
 
