@@ -1,6 +1,6 @@
 # Save The World
 
-[![Build Status](https://travis-ci.com/Narshe1412/portfolio.svg?branch=master)](https://travis-ci.com/Narshe1412/portfolio)
+[![Build Status](https://travis-ci.com/Narshe1412/Code-Institute-Django-Project.svg?branch=master)](https://travis-ci.com/Narshe1412/Code-Institute-Django-Project)
 
 There's enough scientific fact that the climate is deteriorating at an exponential rate. This sentiment is not, however, shared with other people in the world neither governments so it is the job of individuals and some non-profit organizations to help spread the information so the humans can survive their own doomsday clock.
 As not many organizations have the funding to pay for a customize website, Save The World app can be used to have a ready to deploy solution to cover most of their needs including spread information, putting people in contact of other people, and get funding for activities.
